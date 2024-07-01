@@ -64,6 +64,17 @@ VALUES
 
 -- 1. Write a query to calculate the price of 'Starry Night' plus 10% tax.
 
+SELECT *
+FROM artists
+SELECT *
+FROM artworks
+SELECT *
+FROM sales
+
+SELECT (price * 0.1) as price
+FROM artworks
+WHERE title = 'Starry Night'
+
 
 -- 2. Write a query to display the artist names in uppercase.
 
@@ -194,9 +205,13 @@ FROM artworks
 SELECT *
 FROM sales
 
--- SELECT name,avg(price) from artists a 
--- JOIN artworks ak ON a.artist_id = ak.artist_id
--- WHERE avg(price) > (SELECT max(price) from artworks where genre = 'Renaissance')
+SELECT name, avg(price)
+from artists a
+    JOIN artworks ak ON a.artist_id = ak.artist_id
+GROUP BY name
+HAVING avg(price) > (SELECT max(price)
+from artworks
+where genre = 'Renaissance')
 
 -- ### Section 3: 3 Marks Questions
 
@@ -243,14 +258,14 @@ from artworks)
 SELECT name, title
 from artists a
     JOIN artworks ak ON a.artist_id = ak.artist_id
-for XML PATH, root('Artists')
+-- for XML PATH, root('Artists')
 
 -- 20. Write a query to convert the artists and their artworks into JSON format.
 
 SELECT name, title
 from artists a
     JOIN artworks ak ON a.artist_id = ak.artist_id
-for json path, root('Artists')
+-- for json path, root('Artists')
 
 -- ### Section 5: 5 Marks Questions
 
