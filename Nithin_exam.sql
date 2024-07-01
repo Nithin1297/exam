@@ -243,14 +243,14 @@ from artworks)
 SELECT name, title
 from artists a
     JOIN artworks ak ON a.artist_id = ak.artist_id
--- for XML PATH, root('Artists')
+for XML PATH, root('Artists')
 
 -- 20. Write a query to convert the artists and their artworks into JSON format.
 
 SELECT name, title
 from artists a
     JOIN artworks ak ON a.artist_id = ak.artist_id
--- for json path, root('Artists')
+for json path, root('Artists')
 
 -- ### Section 5: 5 Marks Questions
 
